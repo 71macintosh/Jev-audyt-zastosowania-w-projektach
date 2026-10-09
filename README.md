@@ -7,5 +7,7 @@ Gdzie w moich projektach, skillach, skryptach i automatyzacjach stosować [jev-c
 | [AUDYT.md](AUDYT.md) | Wyniki dla systemu i każdego repozytorium, hacki do `Mods`, reguły bezpieczeństwa, plan wdrożenia |
 | [JEV-DECYZJE.md](JEV-DECYZJE.md) | Decyzje w moich projektach, które może przejąć Jev: top 5, gotowe wywołanie dla #1, pełna lista |
 | [PROMPT-AUDYTU.md](PROMPT-AUDYTU.md) | Prompt do powtórzenia audytu w każdym nowym projekcie |
+| [instalacja/](instalacja/README.md) | Instalator kompletu Jev: Windows, macOS/Linux, chmura |
 | [szablony/settings.user.json](szablony/settings.user.json) | Globalne ustawienie `~/.claude/settings.json` |
+| [szablony/settings.project.json](szablony/settings.project.json) | `.claude/settings.json` projektu (bez klucza) |
 | [szablony/CLAUDE-jev.md](szablony/CLAUDE-jev.md) | Fragment do `CLAUDE.md` projektu |

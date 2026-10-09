@@ -1,6 +1,8 @@
+# CLAUDE.md
+
 ## Kompakcja Jev
 
-Status w tym projekcie: **włączona** / **wyłączona** (powód: …). Audyt: `.claude/jev/AUDYT.md`.
+Status w tym projekcie: **włączona** (audyty: długie odczyty kodu innych repozytoriów). Audyt: `.claude/jev/AUDYT.md`.
 
 - Toast `kept … no summary` oznacza, że stare wyniki narzędzi trafiły do `.jev-drawer/<czas>/`. Gdy brakuje starego wyniku (testu, logu, pliku), najpierw przeczytaj `INDEX.md` w szufladzie, dopiero potem uruchamiaj ponownie. `/drawer` pokazuje i czyści szufladę.
 - Przed zamknięciem długiej sesji zrób Handoff (`/handoff`), bo kompakcja Jev nie przetrwa `--resume`.

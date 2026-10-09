@@ -79,16 +79,26 @@ Blokada odczytu w `.claude/settings.json` projektu (działa niezależnie od Jev 
 }
 ```
 
-## 5. Plan wdrożenia
+## 5. Wdrożenie (2026-10-09)
 
-1. Ustawienie globalne (`~/.claude/settings.json`, na Windowsie `%USERPROFILE%\.claude\settings.json`). Gotowy plik: [`szablony/settings.user.json`](szablony/settings.user.json).
-2. Instalacja:
-   ```
-   claude plugin marketplace add cth9191/jev-compaction-plus
-   claude plugin install jev-compaction-plus@jev-compaction-plus
-   ```
-   Przed instalacją przejrzyj kod pluginu i uruchom `claude plugin validate` (tak radzi `Mods/docs/POMYSLY.md`). W tym audycie przejrzano `hooks/fast-jev.ts`, `src/client.ts`, `src/request.ts`: plugin łączy się wyłącznie z endpointem Jev (TypeSafe/OpenRouter albo `baseUrl`) i zapisuje tylko pliki szuflady.
-3. W `auto_bot` dodaj blokadę z sekcji 4. W `Kaucja` wyłącz plugin, gdy pracujesz na prawdziwych fakturach.
-4. Pierwszy tydzień: obserwuj toasty. `fallback to built-in summary` w danym repo oznacza, że Jev nic tam nie daje.
-5. Mody z sekcji 3, w kolejności 1 → 2 → 3 → 4.
-6. Każdy nowy projekt: [`PROMPT-AUDYTU.md`](PROMPT-AUDYTU.md) i fragment [`szablony/CLAUDE-jev.md`](szablony/CLAUDE-jev.md) do jego `CLAUDE.md`.
+Zrobione:
+- **Mody** w [71macintosh/Mods](https://github.com/71macintosh/Mods), gałąź `claude/jev-mods`:
+  - `jev-compaction-plus` (przypięta kopia `e2ca81c`, 36/36 testów autora);
+  - `jev-guard`, `drawer`, `jev-start` (nowe);
+  - zmiany w `context-bar` (próg Jev) i `session-bar` (Handoff ⚠).
+
+  Wszystkie mody przechodzą `claude plugin validate`, `claude plugin test` i `tsc`.
+- **Obecne repozytoria**, gałąź `claude/jev-setup` (`Mods`: `claude/jev-mods`, `AI`: `main`). Każde dostało:
+  - `.claude/settings.json` (marketplace i mody, bez klucza);
+  - `.claude/jev/` (prompt, szablony, wynik audytu danego repo);
+  - sekcję „Kompakcja Jev” w `CLAUDE.md`.
+
+  Testy po zmianie: HUD_bot 82, auto_bot 41, crypto-lab 280, wszystkie zielone.
+- **Przyszłe repozytoria:** `jev-start` wkleja `.claude/jev/` i ustawienia przy pierwszej sesji.
+- **Ustawienia globalne:** instalator w [`instalacja/`](instalacja/README.md) (Windows `.bat`, macOS/Linux, skrypt startowy chmury).
+
+Do zrobienia przez ciebie:
+1. Scal `claude/jev-mods` w `Mods` (bez tego nowe mody nie są w marketplace), potem gałęzie `claude/jev-setup` w pozostałych repo.
+2. Uruchom instalator na swoim komputerze.
+3. W środowisku chmury: setup script, `TYPESAFE_API_KEY`, domena `openrouter.ai` / `api.typesafe.ai` ([instalacja/README.md](instalacja/README.md)).
+4. `Trading-bot`: brak dostępu w tej sesji. Obejmie go instalator globalny i `jev-start`.

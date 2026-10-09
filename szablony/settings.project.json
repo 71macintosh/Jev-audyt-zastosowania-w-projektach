@@ -1,14 +1,10 @@
 {
   "env": {
-    "CLAUDE_CODE_ENABLE_FUNCTION_HOOKS": "1",
-    "TYPESAFE_API_KEY": "<klucz TypeSafe albo OpenRouter sk-or-...>"
+    "CLAUDE_CODE_ENABLE_FUNCTION_HOOKS": "1"
   },
   "extraKnownMarketplaces": {
     "mods": {
-      "source": {
-        "source": "github",
-        "repo": "71macintosh/Mods"
-      }
+      "source": { "source": "github", "repo": "71macintosh/Mods" }
     }
   },
   "enabledPlugins": {
