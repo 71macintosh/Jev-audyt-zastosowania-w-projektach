@@ -8,8 +8,12 @@ New-Item -ItemType Directory -Force -Path $dir | Out-Null
 
 $key = ''
 if (-not $env:TYPESAFE_API_KEY) {
-  $secure = Read-Host 'Klucz Jev (TypeSafe albo OpenRouter sk-or-...), Enter = pomiń' -AsSecureString
-  $key = [Runtime.InteropServices.Marshal]::PtrToStringAuto([Runtime.InteropServices.Marshal]::SecureStringToBSTR($secure))
+  try {
+    $secure = Read-Host 'Klucz Jev (TypeSafe albo OpenRouter sk-or-...), Enter = pomiń' -AsSecureString
+    $bstr = [Runtime.InteropServices.Marshal]::SecureStringToBSTR($secure)
+    try { $key = [Runtime.InteropServices.Marshal]::PtrToStringBSTR($bstr) }
+    finally { [Runtime.InteropServices.Marshal]::ZeroFreeBSTR($bstr) }
+  } catch { $key = '' }
 }
 
 function Ensure-Object($parent, [string]$name) {
