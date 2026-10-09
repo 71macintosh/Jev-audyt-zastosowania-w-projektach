@@ -22,7 +22,7 @@ Instalator pyta o klucz Jev (TypeSafe albo OpenRouter `sk-or-…`; Enter pomija)
 W ustawieniach środowiska (menu środowiska w pasku tytułu sesji → Edit):
 
 1. **Setup script:** `curl -fsSL https://raw.githubusercontent.com/71macintosh/Jev-audyt-zastosowania-w-projektach/main/instalacja/instaluj.sh | bash -s -- --chmura`
-   Działa po scaleniu tej gałęzi do `main`. Jeśli sieć środowiska blokuje `raw.githubusercontent.com`, wklej w pole setup script całą treść `instaluj.sh` i dopisz na końcu wywołanie z `--chmura` (albo ustaw `CHMURA=1` na początku).
+   Działa po scaleniu tej gałęzi do `main`. Jeśli sieć środowiska blokuje `raw.githubusercontent.com`, wklej w pole setup script całą treść `instaluj.sh`: bez terminala skrypt i tak nie pyta o klucz.
 2. **Zmienna środowiska** `TYPESAFE_API_KEY` z kluczem (najlepiej w sekcji sekretów).
 3. **Network access:** dodaj `openrouter.ai` (klucz `sk-or-…`) albo `api.typesafe.ai` (klucz TypeSafe) do dozwolonych domen.
 
